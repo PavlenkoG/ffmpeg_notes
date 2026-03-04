@@ -49,3 +49,9 @@ c:\ffmpeg\bin\ffmpeg.exe -r 10 -f image2 -s 1130x620 -i sa_%02d_00.png -vcodec l
 c:\ffmpeg\bin\ffmpeg.exe -i sa_1500.mp4 -i crop.mp4 -filter_complex "overlay=250:main_h-overlay_h-0" combined15.mp4
 c:\ffmpeg\bin\ffmpeg.exe -i test1.mp4 -filter:v "crop=300:300:0:70" -c:a copy crop.mp4
 ```
+
+## Convert video to AVIF
+
+```
+c:\Users\xxxx\Documents\ffmpeg\bin\ffmpeg.exe -hwaccel auto -i C:\Users\xxxx\Videos\video_2025-11-10_07-25-36.mp4 -c:v libaom-av1 -cpu-used 6 -crf 30 -r 30 -g 300 -b:v 1500k -row-mt 1 -tiles 2x2 -colorspace bt2020nc -color_trc smpte2084 -color_primaries bt2020 -vf "scale=w=1280:h=1280:force_original_aspect_ratio=decrease" -an C:\Users\xxxx\Videos\Hinterrugg.avif
+```
